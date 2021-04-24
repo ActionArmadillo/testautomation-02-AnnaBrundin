@@ -7,9 +7,7 @@ const USERNAME_LABEL = ':nth-child(1) > label'
 const PASSWORD_TEXTFIELD = ':nth-child(2) > input'
 const PASSWORD_LABEL = ':nth-child(2) > label'
 const LOGIN_BUTTON = '.btn'
-const LOGOUT_BUTTON = '.user > .btn'
-const DASHBOARD_PAGE_TITLE = 'h2'
-
+const MAIN_PAGE_TITLE = 'h2'
 
 // actions / methods / functions
 function checkElements(){
@@ -18,15 +16,23 @@ function checkElements(){
     cy.get(PASSWORD_LABEL).should('have.text','Password:').should('have.css', 'text-transform', 'uppercase')
 }
 
-function validLogin(username, password){
+function validLogin(username, password, content){
+    cy.get(USERNAME_TEXTFIELD).type(username)
+    cy.get(PASSWORD_TEXTFIELD).type(password)
+    cy.get(LOGIN_BUTTON).click()    
+    cy.get(MAIN_PAGE_TITLE).should('have.text', content)
+    cy.wait(5000)
+}
+
+function login(username, password){
     cy.get(USERNAME_TEXTFIELD).type(username)
     cy.get(PASSWORD_TEXTFIELD).type(password)
     cy.get(LOGIN_BUTTON).click()
-    cy.get(DASHBOARD_PAGE_TITLE).should('have.text', 'Tester Hotel Overview')
 }
 
 // export functions
 module.exports = {
     checkElements,
-    validLogin
+    validLogin,
+    login
 }
