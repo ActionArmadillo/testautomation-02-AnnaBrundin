@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-04-25T15:34:05.350Z",
+    "end": "2021-04-25T15:34:20.112Z",
+    "duration": 14762,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7304a549-25c1-4cd9-8247-811b44f24b0e",
+      "title": "",
+      "fullFile": "cypress/integration/po-tests/clients.spec.js",
+      "file": "cypress/integration/po-tests/clients.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e96a15fa-a310-4bb0-9b52-ff653b7eb4dd",
+          "title": "Clients page and New Client tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "View Client page",
+              "fullTitle": "Clients page and New Client tests View Client page",
+              "timedOut": null,
+              "duration": 2387,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "clientFunctions.viewClientsPage('Clients');",
+              "err": {},
+              "uuid": "fd477a02-44e4-4f4e-af06-804212a81429",
+              "parentUUID": "e96a15fa-a310-4bb0-9b52-ff653b7eb4dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "View Create Client page",
+              "fullTitle": "Clients page and New Client tests View Create Client page",
+              "timedOut": null,
+              "duration": 1985,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "clientFunctions.openClientsPage();\nclientFunctions.viewNewClientPage();",
+              "err": {},
+              "uuid": "684c1436-d32b-4b5b-a407-6bf0d29139bc",
+              "parentUUID": "e96a15fa-a310-4bb0-9b52-ff653b7eb4dd",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create, validate and delete new Client",
+              "fullTitle": "Clients page and New Client tests Create, validate and delete new Client",
+              "timedOut": null,
+              "duration": 9805,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "clientFunctions.openClientsPage();\nclientFunctions.openNewClientPage();\nclientFunctions.createNewClient(randomName, randomEmail, randomPhone);\nclientFunctions.validateCreatedClient(randomName, randomEmail, randomPhone);\ncy.wait(5000);\nclientFunctions.removeLastClient();\ncy.wait(1000);",
+              "err": {},
+              "uuid": "431a5d4c-20c2-467f-9ef3-e0fa6b631cea",
+              "parentUUID": "e96a15fa-a310-4bb0-9b52-ff653b7eb4dd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fd477a02-44e4-4f4e-af06-804212a81429",
+            "684c1436-d32b-4b5b-a407-6bf0d29139bc",
+            "431a5d4c-20c2-467f-9ef3-e0fa6b631cea"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14177,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

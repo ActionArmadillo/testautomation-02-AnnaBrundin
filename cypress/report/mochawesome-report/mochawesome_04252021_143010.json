@@ -1,0 +1,130 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-04-25T12:29:57.776Z",
+    "end": "2021-04-25T12:30:10.389Z",
+    "duration": 12613,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 1,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "b0a23dab-0543-4dec-8d7a-e883aed03c8b",
+      "title": "",
+      "fullFile": "cypress/integration/po-tests/login.spec.js",
+      "file": "cypress/integration/po-tests/login.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b8aa6b72-5760-434c-93ad-5c80dc046b1c",
+          "title": "Login and logout tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC01 - log in to the application",
+              "fullTitle": "Login and logout tests TC01 - log in to the application",
+              "timedOut": null,
+              "duration": 4558,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('http://localhost:3000/login');\nloginFunctions.checkElements();\nloginFunctions.validLogin('tester01', 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c', 'Tester Hotel Overview');\ndashboardFunctions.performLogout();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.user > .btn`, but never found it.\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Login and logout tests`",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.user > .btn`, but never found it.\n\nBecause this error occurred during a `after each` hook we are skipping the remaining tests in the current suite: `Login and logout tests`\n    at Object.performLogout (http://localhost:3000/__cypress/tests?p=cypress\\integration\\po-tests\\login.spec.js:159:6)\n    at Context.eval (http://localhost:3000/__cypress/tests?p=cypress\\integration\\po-tests\\login.spec.js:113:24)",
+                "diff": null
+              },
+              "uuid": "249b95c6-2675-404f-bb0a-2a8ee2d9b278",
+              "parentUUID": "b8aa6b72-5760-434c-93ad-5c80dc046b1c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC02 - log out of the application",
+              "fullTitle": "Login and logout tests TC02 - log out of the application",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "loginFunctions.validLogin('tester01', 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c', 'Tester Hotel Overview');\ndashboardFunctions.performLogout();",
+              "err": {},
+              "uuid": "903e73d5-d014-4043-81fb-887c95085e94",
+              "parentUUID": "b8aa6b72-5760-434c-93ad-5c80dc046b1c",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "249b95c6-2675-404f-bb0a-2a8ee2d9b278"
+          ],
+          "pending": [],
+          "skipped": [
+            "903e73d5-d014-4043-81fb-887c95085e94"
+          ],
+          "duration": 4558,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 /// <reference types="cypress" />
+
 /////////////
 // elements//
 /////////////
@@ -12,6 +13,10 @@ const TELEPHONE_TEXTFIELD = ':nth-child(3) > input'
 const TELEPHONE_FILED_LABEL = ':nth-child(3) > label'
 const SAVE_BUTTON = '.blue'
 const BACK_BUTTON = '[href="/clients"]'
+const MEATBALLS_BUTTON = '.action > img'
+const DELETE_BUTTON = '.menu > :nth-child(2)'
+const EDIT_BUTTON = '.menu > :nth-child(1)'
+const CLIENT_LIST = '.client'
 
 //////////////////////////////////
 // functions / methods / actions//
@@ -51,12 +56,14 @@ function createNewClient(name, email, telephone){
 }
 
 function validateCreatedClient(name, email, telephone){
-
+    cy.get(CLIENT_LIST).should('contain', name).and('contain', email).and('contain', telephone)
 }
 
-function removeClient(name, email, telephone){
-    
+function removeLastClient(){
+    cy.get(MEATBALLS_BUTTON).last().click()
+    cy.get(DELETE_BUTTON).click()
 }
+
 /////////////////////
 // export functions//
 /////////////////////
@@ -65,5 +72,7 @@ module.exports = {
     openClientsPage,
     viewNewClientPage,
     openNewClientPage,
-    createNewClient
+    createNewClient,
+    validateCreatedClient,
+    removeLastClient
 }

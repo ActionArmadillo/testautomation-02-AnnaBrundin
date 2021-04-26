@@ -8,13 +8,18 @@
 		"lint": "vue-cli-service lint",
 		"dev": "nodemon index.js",
 		"start": "node index.js",
-		"cypress:open": "cypress open"
+		"cypress:open": "cypress open",
+		"cypress:run": "cypress run --reporter mochawesome",
+		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"dependencies": {
 		"body-parser": "^1.19.0",
 		"core-js": "^3.10.0",
 		"cors": "^2.8.5",
 		"express": "^4.17.1",
+		"mocha": "^5.2.0",
+		"mochawesome": "^6.2.2",
+		"mochawesome-merge": "^4.2.0",
 		"ts-md5": "^1.2.7",
 		"vue": "^2.6.12",
 		"vue-class-component": "^7.2.6",
@@ -28,6 +33,7 @@
 		"@vue/cli-plugin-typescript": "^4.5.12",
 		"@vue/cli-service": "^4.5.12",
 		"cypress": "^7.1.0",
+		"faker": "^5.5.3",
 		"node-sass": "^4.14.1",
 		"nodemon": "^2.0.7",
 		"sass-loader": "^8.0.2",
