@@ -5,10 +5,15 @@ const DASHBOARD_TITLE = 'h1 > .router-link-active'
 const DASHBOARD_HEADER_NAME = 'h1'
 const WELCOME_MESSAGE = '.username'
 const LOGOUT_BUTTON = '.user > .btn'
-const pages = [ 'http://localhost:3000/rooms',
+const PAGES = [ 'http://localhost:3000/rooms',
                 'http://localhost:3000/clients',
                 'http://localhost:3000/bills',
-                'http://localhost:3000/reservations' ]
+                'http://localhost:3000/reservations',
+                'http://localhost:3000/room/new',
+                'http://localhost:3000/client/new',
+                'http://localhost:3000/bill/new',
+                'http://localhost:3000/reservation/new'
+             ]
 
 // functions / methods / actions
 function checkElements(username){
@@ -18,8 +23,9 @@ function checkElements(username){
 }
 
 function checkPages(username){
-    for(i = 0; i < pages.length; i++){
-        cy.visit(pages[i])
+    for(i = 0; i < PAGES.length; i++){
+        cy.log('checking')
+        cy.visit(PAGES[i])
         checkElements(username)
         cy.get(DASHBOARD_TITLE).click()
     }

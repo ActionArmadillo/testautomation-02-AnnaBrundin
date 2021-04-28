@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-04-28T13:13:18.953Z",
+    "end": "2021-04-28T13:13:51.315Z",
+    "duration": 32362,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a7376a66-6d9b-4230-b862-fa3feb2c2db7",
+      "title": "",
+      "fullFile": "cypress/integration/po-tests/all.testcases.spec.js",
+      "file": "cypress/integration/po-tests/all.testcases.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4f018edd-dc6b-4492-bf7e-84ce9c641684",
+          "title": "Main spec file for all test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Testing login functionality - Open login page, check contents, log in, check contents",
+              "fullTitle": "Main spec file for all test cases Testing login functionality - Open login page, check contents, log in, check contents",
+              "timedOut": null,
+              "duration": 14036,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('To check login one must log out. ');\ndashboardFunctions.performLogout();\ncy.visit('http://localhost:3000/login');\ncy.wait(1000);\nloginFunctions.checkElements();\ncy.percySnapshot('Validating login page elements');\nloginFunctions.validLogin('tester01', 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c', 'Tester Hotel Overview');\ncy.wait(1000);\ncy.percySnapshot('Validating successul login');",
+              "err": {},
+              "uuid": "7e1b9787-add2-43d3-9e0f-bcfc68d87c7a",
+              "parentUUID": "4f018edd-dc6b-4492-bf7e-84ce9c641684",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Validate dashboard presence and content on all pages in the application",
+              "fullTitle": "Main spec file for all test cases Validate dashboard presence and content on all pages in the application",
+              "timedOut": null,
+              "duration": 7099,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('checking the dashboard');\nclientsFunctions.openClientsPage();\nclientsFunctions.viewNewClientPage();\ndashboardFunctions.checkPages('tester01');",
+              "err": {},
+              "uuid": "d518eb08-9b42-4e5e-87c3-9a28c4c200f4",
+              "parentUUID": "4f018edd-dc6b-4492-bf7e-84ce9c641684",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Open and validate Clients page",
+              "fullTitle": "Main spec file for all test cases Open and validate Clients page",
+              "timedOut": null,
+              "duration": 2244,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "clientsFunctions.viewClientsPage('Clients');",
+              "err": {},
+              "uuid": "ca6d6b5f-6db9-4546-a49b-86b714ae01fa",
+              "parentUUID": "4f018edd-dc6b-4492-bf7e-84ce9c641684",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Open and validate the content of New Client creation page",
+              "fullTitle": "Main spec file for all test cases Open and validate the content of New Client creation page",
+              "timedOut": null,
+              "duration": 2193,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "clientsFunctions.openClientsPage();\nclientsFunctions.viewNewClientPage();",
+              "err": {},
+              "uuid": "b4ab61b7-c8e7-4d61-85e8-cc788dd05e45",
+              "parentUUID": "4f018edd-dc6b-4492-bf7e-84ce9c641684",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Create, validate and delete new Client",
+              "fullTitle": "Main spec file for all test cases Create, validate and delete new Client",
+              "timedOut": null,
+              "duration": 5880,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "clientsFunctions.openClientsPage();\nclientsFunctions.openNewClientPage();\nclientsFunctions.createNewClient(randomName, randomEmail, randomPhone);\nclientsFunctions.validateCreatedClient(randomName, randomEmail, randomPhone);\ncy.wait(1000);\nclientsFunctions.removeLastClient();\ncy.wait(1000);",
+              "err": {},
+              "uuid": "d30b27a4-81f2-405a-90ec-f0a568b337e0",
+              "parentUUID": "4f018edd-dc6b-4492-bf7e-84ce9c641684",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "7e1b9787-add2-43d3-9e0f-bcfc68d87c7a",
+            "d518eb08-9b42-4e5e-87c3-9a28c4c200f4",
+            "ca6d6b5f-6db9-4546-a49b-86b714ae01fa",
+            "b4ab61b7-c8e7-4d61-85e8-cc788dd05e45",
+            "d30b27a4-81f2-405a-90ec-f0a568b337e0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 31452,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

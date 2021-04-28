@@ -10,7 +10,6 @@ let randomName = faker.name.findName()
 let randomEmail = faker.internet.email().toLowerCase();
 let randomPhone = faker.phone.phoneNumber();
 
-
 describe('Clients page and New Client tests', () => {
     beforeEach(() => {
         cy.log('before each')
@@ -32,7 +31,7 @@ describe('Clients page and New Client tests', () => {
         clientFunctions.viewNewClientPage()
     })
 
-    it('Create, validate and delete new Client', () => {
+    it.only('Create, validate and delete new Client', () => {
         clientFunctions.openClientsPage()
         clientFunctions.openNewClientPage()
         clientFunctions.createNewClient(randomName,randomEmail,randomPhone)
@@ -41,4 +40,6 @@ describe('Clients page and New Client tests', () => {
         clientFunctions.removeLastClient()
         cy.wait(1000)
     })
+
+    
 })

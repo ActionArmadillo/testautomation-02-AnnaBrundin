@@ -38,4 +38,10 @@ describe('Validate content across the application', () => {
         clientsFunctions.viewClientsPage('Clients')
         dashboardFunctions.performLogout()
     })
+    it('Open and validate the content of New Client creation page', () => {
+        loginFunctions.login('tester01','GteteqbQQgSr88SwNExUQv2ydb7xuf8c')
+        clientsFunctions.openClientsPage()
+        clientsFunctions.viewNewClientPage()
+        dashboardFunctions.performLogout()
+    })
 })

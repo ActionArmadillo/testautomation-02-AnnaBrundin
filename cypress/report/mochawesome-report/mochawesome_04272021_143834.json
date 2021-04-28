@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-04-27T12:38:19.396Z",
+    "end": "2021-04-27T12:38:34.785Z",
+    "duration": 15389,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0f548efd-8730-4aae-8bef-e5f36495196d",
+      "title": "",
+      "fullFile": "cypress/integration/po-tests/all.testcases.spec.js",
+      "file": "cypress/integration/po-tests/all.testcases.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "06b5251b-5ef8-4c24-a484-0618956005ec",
+          "title": "Main spec file for all test cases",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Testing login functionality - Open login page, check contents, log in, check contents",
+              "fullTitle": "Main spec file for all test cases Testing login functionality - Open login page, check contents, log in, check contents",
+              "timedOut": null,
+              "duration": 15020,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.log('To check login one must log out. ');\ndashboardFunctions.performLogout();\ncy.visit('http://localhost:3000/login');\ncy.wait(1000);\nloginFunctions.checkElements();\ncy.percySnapshot('Validating login page elements');\nloginFunctions.validLogin('tester01', 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c', 'Tester Hotel Overview');\ncy.wait(500);\ncy.percySnapshot('Validating successul login');",
+              "err": {},
+              "uuid": "a9e09226-55e7-420f-ae8a-f3d9e1ec3868",
+              "parentUUID": "06b5251b-5ef8-4c24-a484-0618956005ec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a9e09226-55e7-420f-ae8a-f3d9e1ec3868"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15020,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/report/mochawesome-report",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

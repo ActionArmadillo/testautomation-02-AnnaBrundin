@@ -4,6 +4,7 @@ import * as loginFunctions from '../../pages/loginPage'
 import * as dashboardFunctions from '../../pages/dashboardPage'
 
 describe('Login and logout tests', () => {
+    /*
     beforeEach(() => {
         cy.log('before each')
         cy.visit('http://localhost:3000/login')
@@ -13,6 +14,7 @@ describe('Login and logout tests', () => {
         cy.log('after each')
         dashboardFunctions.performLogout()
     })
+    */
 
     it('TC01 - log in to the application', () => {
         cy.visit('http://localhost:3000/login')
