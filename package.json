@@ -10,7 +10,7 @@
 		"start": "node index.js",
 		"cypress:open": "cypress open",
 		"cypress:run": "cypress run --reporter mochawesome",
-		"test:vrt": "percy exec cypress run --spec cypress/integration/po-tests/all.testcases.spec.js",
+		"test:vrt": "percy exec cypress run --spec cypress/integration/percy-tests/snapshots.spec.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 		
 	},

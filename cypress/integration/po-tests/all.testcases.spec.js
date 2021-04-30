@@ -8,6 +8,7 @@ import * as dashboardFunctions from '../../pages/dashboardPage'
 import * as clientsFunctions from '../../pages/clientsPage'
 import * as billsFunctions from '../../pages/billsPage'
 import * as roomsFunctions from '../../pages/roomsPage'
+import * as reservationsFunctions from '../../pages/reservationsPage'
 
 //-----------------------------------------------------------------//
 //                          variables                              //
