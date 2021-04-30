@@ -17,11 +17,17 @@ const FLOOR_TEXTFIELD = ':nth-child(3) > input'
 const PRICE_TEXT_FIELD = ':nth-child(5) > input'
 const AVAILABLE_CHECKBOX = '.checkbox'
 const FEATURES = ':nth-child(6) > select'
-const FEATURES_LIST = [ 'balcony',
+const FEATURES_LIST_VALUES = [ 'balcony',
                         'ensuite',
                         'sea_view',
                         'penthouse'
                     ]
+const FEATURES_LIST = [ 'balcony',
+                        'ensuite',
+                        'sea view',
+                        'penthouse'
+                    ]
+
 const MEATBALLS_BUTTON = '.action'
 const DELETE_BUTTON = '.menu > :nth-child(2)'
 
@@ -40,18 +46,25 @@ function createAvailableRoom(category, number, floor, price, features){
     cy.get(NUMBER_TEXTFIELD).type(number)
     cy.get(FLOOR_TEXTFIELD).type(floor)
     cy.get(PRICE_TEXT_FIELD).type(price)
-    cy.get(FEATURES).select(FEATURES_LIST[features])
+    cy.get(FEATURES).select(FEATURES_LIST_VALUES[features])
     cy.get(AVAILABLE_CHECKBOX).click()
     cy.get(SAVE_BUTTON).click()    
 }
 
 function validateAvailableRoom(category, number, floor, available, features){
+    cy.log(category)
+    cy.log(number)
+    cy.log(floor)
+    cy.log(features)
+    cy.log(FEATURES_LIST[features])
+    let feature = FEATURES_LIST[features]
+    cy.log(feature)
     cy.get(ROOMS_LIST)
         .should('contain', category)
         .and('contain', number)
         .and('contain', floor)
         .and('contain', available)
-        .and('contain', features)
+        .and('contain', FEATURES_LIST[features])
 }
 
 function removeLastRoom(){
@@ -63,7 +76,7 @@ function removeLastRoom(){
 // export functions //
 //////////////////////
 module.exports = {
-    FEATURES_LIST,
+    FEATURES_LIST_VALUES,
     openRoomsPage,
     openNewRoomPage,
     createAvailableRoom,

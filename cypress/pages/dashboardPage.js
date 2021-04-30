@@ -36,9 +36,14 @@ function performLogout(){
     cy.get(LOGOUT_BUTTON).click()
 }
 
+function backToIndex(){
+    cy.get(DASHBOARD_TITLE).click()
+}
+
 // export functions
 module.exports = {
     checkElements,
     checkPages,
+    backToIndex,
     performLogout
 }

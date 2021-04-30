@@ -8,6 +8,7 @@ import * as dashboardFunctions from '../../pages/dashboardPage'
 import * as clientsFunctions from '../../pages/clientsPage'
 import * as billsFunctions from '../../pages/billsPage'
 import * as roomsFunctions from '../../pages/roomsPage'
+import * as reservationsFunctions from '../../pages/reservationsPage'
 
 //-----------------------------------------------------------------//
 //                          variables                              //
@@ -17,6 +18,10 @@ const USERNAME = 'tester01';
 const PASSWORD = 'GteteqbQQgSr88SwNExUQv2ydb7xuf8c';
 
 var faker = require('faker');
+let start = faker.date.between('2020-12-01', '2020-12-31').toISOString();
+let end  = faker.date.between('2021-01-01', '2021-01-31').toISOString();
+let start_date = start.toString().substring(0,10);
+let end_date = end.toString().substring(0, 10);
 
 let randomName = faker.name.findName()
 let randomEmail = faker.internet.email().toLowerCase();
@@ -30,78 +35,39 @@ let roomNumber = faker.random.number({min:1, max:20}) + (floor * 100);
 let features = faker.random.number({min:0, max:3});
 let price = faker.random.number({min:2, max:5}) * 100 * floor + (features * 500);
 
-let start = faker.date.between('2020-12-01', '2020-12-31').toISOString();
-let end  = faker.date.between('2021-01-01', '2021-01-31').toISOString();
-let start_date = start.toString().substring(0,10);
-let end_date = end.toString().substring(0, 10);
 
 
 //-----------------------------------------------------------------//
-//                          test cases                             //
+//                          functions                              //
 //-----------------------------------------------------------------//
+/*
+function randomDate(start, end) {
+    var d = new Date(start.getTime() + Math.random() * (end.getTime() -                     start.getTime())),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+*/
+
+//-----------------------------------------------------------------//
+//                          tests                                  //
+//-----------------------------------------------------------------//
+
 
 describe('Main spec file for all test cases', () => {
     
-    beforeEach(() => {
-        cy.log('Log in before every test')
-        cy.visit('http://localhost:3000/login')
-        loginFunctions.login(USERNAME, PASSWORD)
-        cy.wait(500)
-        cy.log('Logged in')
-    })
-    
-    afterEach(() => {
-        cy.log('Log out after each test')
-        dashboardFunctions.performLogout()
-    })
-
-    it('Validate dashboard presence and content on all pages in the application', () =>{
-        cy.log('checking the dashboard')
-        clientsFunctions.openClientsPage()
-        clientsFunctions.viewNewClientPage()
-        dashboardFunctions.checkPages('tester01')
-    })
-
-    it('Create, validate and delete new Client', () => {
-        clientsFunctions.openClientsPage()
-        clientsFunctions.openNewClientPage()
-        clientsFunctions.createNewClient(randomName,randomEmail,randomPhone)
-        clientsFunctions.validateCreatedClient(randomName,randomEmail,randomPhone)
-        cy.wait(1000)
-        clientsFunctions.removeLastClient()
-        cy.wait(1000)
-    })
-    
-    it('Create, validate and delete new unpaid Bill', () => {
-        billsFunctions.openBillsPage()
-        billsFunctions.openNewBillPage()
-        billsFunctions.createUnpaidBill(billValue)
-        billsFunctions.validateUnpaidBill(billValue, 'No')
-        cy.wait(2000)
-        billsFunctions.removeLastBill()
-    })
-
-    it('Create, validate and delete new paid Bill', () => {
-        billsFunctions.openBillsPage()
-        billsFunctions.openNewBillPage()
-        billsFunctions.createPaidBill(billValue)
-        billsFunctions.validatePaidBill(billValue, 'Yes')
-        cy.wait(2000)
-        billsFunctions.removeLastBill()
-    })
-
-    it('Create, validate and delete available Room', () => {
-        roomsFunctions.openRoomsPage()
-        roomsFunctions.openNewRoomPage()
-        roomsFunctions.createAvailableRoom(category, roomNumber, floor, price, features)
-        cy.wait(1000)
-        //roomsFunctions.validateAvailableRoom(category, roomNumber, floor, 'true', features)
-        roomsFunctions.validateAvailableRoom(category, roomNumber, floor, 'true', features)
-        cy.wait(2000)
-        roomsFunctions.removeLastRoom()
-    })
-
     it('Create, validate and delete a Reservation', () => {
+        cy.visit('http://localhost:3000/login')
+        cy.wait(1000)
+        loginFunctions.login(USERNAME, PASSWORD)
+        cy.wait(1000)
+        
+        
         // create new client //
         clientsFunctions.openClientsPage()
         clientsFunctions.openNewClientPage()
@@ -146,6 +112,7 @@ describe('Main spec file for all test cases', () => {
         billsFunctions.removeLastBill()
         cy.wait(1000)
         dashboardFunctions.backToIndex()
+        dashboardFunctions.performLogout()      
     })
-    
+
 })
