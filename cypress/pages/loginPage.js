@@ -21,7 +21,6 @@ function validLogin(username, password, content){
     cy.get(PASSWORD_TEXTFIELD).type(password)
     cy.get(LOGIN_BUTTON).click()    
     cy.get(MAIN_PAGE_TITLE).should('have.text', content)
-    cy.wait(5000)
 }
 
 function login(username, password){
