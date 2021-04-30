@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 
 // elements
-const DASHBOARD_TITLE = 'h1 > .router-link-active'
-const DASHBOARD_HEADER_NAME = 'h1'
+const HEADER_TITLE = 'h1 > .router-link-active'
+const HEADER_NAME = 'h1'
 const WELCOME_MESSAGE = '.username'
 const LOGOUT_BUTTON = '.user > .btn'
 const PAGES = [ 'http://localhost:3000/rooms',
@@ -17,7 +17,7 @@ const PAGES = [ 'http://localhost:3000/rooms',
 
 // functions / methods / actions
 function checkElements(username){
-    cy.get(DASHBOARD_HEADER_NAME).should('contain', 'Tester Hotel')
+    cy.get(HEADER_NAME).should('contain', 'Tester Hotel')
     cy.get(WELCOME_MESSAGE).should('contain', username)
     cy.get(LOGOUT_BUTTON).contains('Logout')
 }
@@ -27,7 +27,7 @@ function checkPages(username){
         cy.log('checking')
         cy.visit(PAGES[i])
         checkElements(username)
-        cy.get(DASHBOARD_TITLE).click()
+        cy.get(HEADER_TITLE).click()
     }
 }
 
@@ -37,7 +37,7 @@ function performLogout(){
 }
 
 function backToIndex(){
-    cy.get(DASHBOARD_TITLE).click()
+    cy.get(HEADER_TITLE).click()
 }
 
 // export functions

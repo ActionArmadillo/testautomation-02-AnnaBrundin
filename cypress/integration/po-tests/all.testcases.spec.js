@@ -4,11 +4,16 @@
 //                          imports                                //
 //-----------------------------------------------------------------//
 import * as loginFunctions from '../../pages/loginPage'
-import * as dashboardFunctions from '../../pages/dashboardPage'
+import * as headerFunctions from '../../pages/headerPage'
+import * as indexFunctions from '../../pages/indexPage'
 import * as clientsFunctions from '../../pages/clientsPage'
+import * as newClientFunctions from '../../pages/newClientPage'
 import * as billsFunctions from '../../pages/billsPage'
+import * as newBillFunctions from '../../pages/newBillPage'
 import * as roomsFunctions from '../../pages/roomsPage'
+import * as newRoomFunctions from '../../pages/newRoomPage'
 import * as reservationsFunctions from '../../pages/reservationsPage'
+import * as newReservationFunctions from '../../pages/newReservationPage'
 
 //-----------------------------------------------------------------//
 //                          variables                              //
@@ -53,20 +58,20 @@ describe('Main spec file for all test cases', () => {
     
     afterEach(() => {
         cy.log('Log out after each test')
-        dashboardFunctions.performLogout()
+        headerFunctions.performLogout()
     })
 
     it('Validate dashboard presence and content on all pages in the application', () =>{
         cy.log('checking the dashboard')
-        clientsFunctions.openClientsPage()
-        clientsFunctions.viewNewClientPage()
-        dashboardFunctions.checkPages('tester01')
+        indexFunctions.openClientsPage()
+        clientsFunctions.openNewClientPage()
+        headerFunctions.checkPages('tester01')
     })
 
     it('Create, validate and delete new Client', () => {
-        clientsFunctions.openClientsPage()
+        indexFunctions.openClientsPage()
         clientsFunctions.openNewClientPage()
-        clientsFunctions.createNewClient(randomName,randomEmail,randomPhone)
+        newClientFunctions.createNewClient(randomName,randomEmail,randomPhone)
         clientsFunctions.validateCreatedClient(randomName,randomEmail,randomPhone)
         cy.wait(1000)
         clientsFunctions.removeLastClient()
@@ -74,29 +79,28 @@ describe('Main spec file for all test cases', () => {
     })
     
     it('Create, validate and delete new unpaid Bill', () => {
-        billsFunctions.openBillsPage()
+        indexFunctions.openBillsPage()
         billsFunctions.openNewBillPage()
-        billsFunctions.createUnpaidBill(billValue)
+        newBillFunctions.createUnpaidBill(billValue)
         billsFunctions.validateUnpaidBill(billValue, 'No')
         cy.wait(2000)
         billsFunctions.removeLastBill()
     })
 
     it('Create, validate and delete new paid Bill', () => {
-        billsFunctions.openBillsPage()
+        indexFunctions.openBillsPage()
         billsFunctions.openNewBillPage()
-        billsFunctions.createPaidBill(billValue)
+        newBillFunctions.createPaidBill(billValue)
         billsFunctions.validatePaidBill(billValue, 'Yes')
         cy.wait(2000)
         billsFunctions.removeLastBill()
     })
 
     it('Create, validate and delete available Room', () => {
-        roomsFunctions.openRoomsPage()
+        indexFunctions.openRoomsPage()
         roomsFunctions.openNewRoomPage()
-        roomsFunctions.createAvailableRoom(category, roomNumber, floor, price, features)
+        newRoomFunctions.createAvailableRoom(category, roomNumber, floor, price, features)
         cy.wait(1000)
-        //roomsFunctions.validateAvailableRoom(category, roomNumber, floor, 'true', features)
         roomsFunctions.validateAvailableRoom(category, roomNumber, floor, 'true', features)
         cy.wait(2000)
         roomsFunctions.removeLastRoom()
@@ -104,27 +108,27 @@ describe('Main spec file for all test cases', () => {
 
     it('Create, validate and delete a Reservation', () => {
         // create new client //
-        clientsFunctions.openClientsPage()
+        indexFunctions.openClientsPage()
         clientsFunctions.openNewClientPage()
-        clientsFunctions.createNewClient(randomName,randomEmail,randomPhone)
-        dashboardFunctions.backToIndex()
+        newClientFunctions.createNewClient(randomName,randomEmail,randomPhone)
+        headerFunctions.backToIndex()
         
         // create new bill
-        billsFunctions.openBillsPage()
+        indexFunctions.openBillsPage()
         billsFunctions.openNewBillPage()
-        billsFunctions.createUnpaidBill(billValue)
-        dashboardFunctions.backToIndex()
+        newBillFunctions.createUnpaidBill(billValue)
+        headerFunctions.backToIndex()
 
         // create new available room
-        roomsFunctions.openRoomsPage()
+        indexFunctions.openRoomsPage()
         roomsFunctions.openNewRoomPage()
-        roomsFunctions.createAvailableRoom(category, roomNumber, floor, price, features)
-        dashboardFunctions.backToIndex()
+        newRoomFunctions.createAvailableRoom(category, roomNumber, floor, price, features)
+        headerFunctions.backToIndex()
              
         // create reservation
-        reservationsFunctions.openReservationsPage()
+        indexFunctions.openReservationsPage()
         reservationsFunctions.openCreateReservationPage()        
-        reservationsFunctions.createReservation(start_date, end_date)
+        newReservationFunctions.createReservation(start_date, end_date)
         cy.wait(3000)
 
         //validate reservation
@@ -134,19 +138,19 @@ describe('Main spec file for all test cases', () => {
         // remove everything
         reservationsFunctions.removeReservation()
         cy.wait(1000)
-        dashboardFunctions.backToIndex()
-        clientsFunctions.openClientsPage()
+        headerFunctions.backToIndex()
+        indexFunctions.openClientsPage()
         clientsFunctions.removeLastClient()
         cy.wait(1000)
-        dashboardFunctions.backToIndex()
-        roomsFunctions.openRoomsPage()
+        headerFunctions.backToIndex()
+        indexFunctions.openRoomsPage()
         roomsFunctions.removeLastRoom()
         cy.wait(1000)
-        dashboardFunctions.backToIndex()
-        billsFunctions.openBillsPage()
+        headerFunctions.backToIndex()
+        indexFunctions.openBillsPage()
         billsFunctions.removeLastBill()
         cy.wait(1000)
-        dashboardFunctions.backToIndex()
+        headerFunctions.backToIndex()
     })
     
 })

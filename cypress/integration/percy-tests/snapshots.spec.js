@@ -4,8 +4,10 @@
 //                          imports                                //
 //-----------------------------------------------------------------//
 import * as loginFunctions from '../../pages/loginPage'
-import * as dashboardFunctions from '../../pages/dashboardPage'
+import * as headerFunctions from '../../pages/headerPage'
+import * as indexFunctions from '../../pages/indexPage'
 import * as clientsFunctions from '../../pages/clientsPage'
+import * as newClientFunctions from '../../pages/newClientPage'
 
 //-----------------------------------------------------------------//
 //                          variables                              //
@@ -28,7 +30,7 @@ describe('Main spec file for all test cases', () => {
         loginFunctions.validLogin(USERNAME, PASSWORD,'Tester Hotel Overview')
         cy.wait(1000)
         cy.percySnapshot('Validating successul login')
-        dashboardFunctions.performLogout()
+        headerFunctions.performLogout()
     })
 
     it('Open and validate Clients page', () => {
@@ -36,10 +38,10 @@ describe('Main spec file for all test cases', () => {
         cy.wait(1000)
         loginFunctions.checkElements()
         loginFunctions.validLogin(USERNAME, PASSWORD,'Tester Hotel Overview')
-        clientsFunctions.viewClientsPage('Clients')
+        indexFunctions.openClientsPage()
         cy.wait(1000)
         cy.percySnapshot("Validating Clients' page appearance")
-        dashboardFunctions.performLogout()
+        headerFunctions.performLogout()
     })
 
     it('Open and validate the content of New Client creation page', () => {
@@ -47,11 +49,12 @@ describe('Main spec file for all test cases', () => {
         cy.wait(1000)
         loginFunctions.checkElements()
         loginFunctions.validLogin(USERNAME, PASSWORD,'Tester Hotel Overview')
-        clientsFunctions.openClientsPage()
-        clientsFunctions.viewNewClientPage()
+        indexFunctions.openClientsPage()
+        clientsFunctions.openNewClientPage()
+        newClientFunctions.validateNewClientPage()
         cy.wait(1000)
         cy.percySnapshot('Validating New Client page appearance')
-        dashboardFunctions.performLogout()
+        headerFunctions.performLogout()
         cy.wait(1000)
     })
 })
